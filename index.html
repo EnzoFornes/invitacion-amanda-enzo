@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#71846d">
+<meta name="description" content="Invitación de matrimonio de Amanda & Enzo — 26 de febrero de 2027.">
+<title>Amanda & Enzo · 26.02.2027</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
+
+:root{
+  --green:#71846d; --green-dark:#4d604d; --cream:#f8f2e8;
+  --pink:#d7a6aa; --rose:#b97982; --ink:#3f403c; --white:#fffdf9;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:Montserrat,Arial,sans-serif}
+body.locked{overflow:hidden}
+h1,h2,h3,.script{font-family:"Cormorant Garamond",Georgia,serif}
+a{text-decoration:none;color:inherit}
+button{font:inherit}
+
+.opening{
+  position:fixed;inset:0;z-index:1000;display:grid;place-items:center;
+  background:radial-gradient(circle at 50% 40%,#fffaf2 0,#f4e7d8 45%,#d9c7b5 100%);
+  transition:opacity .9s,visibility .9s;
+}
+.opening.hidden{opacity:0;visibility:hidden;pointer-events:none}
+.envelope-wrap{text-align:center;cursor:pointer;user-select:none}
+.envelope{
+  width:min(78vw,330px);height:220px;position:relative;margin:auto;
+  filter:drop-shadow(0 18px 25px rgba(75,70,60,.16));
+}
+.env-body{position:absolute;inset:0;background:#fffaf3;border:1px solid #dccfc0;border-radius:5px}
+.env-left,.env-right{position:absolute;bottom:0;width:0;height:0;border-bottom:110px solid #eee2d4}
+.env-left{left:0;border-right:165px solid transparent}
+.env-right{right:0;border-left:165px solid transparent}
+.env-top{
+  position:absolute;left:0;top:0;width:0;height:0;
+  border-left:165px solid transparent;border-right:165px solid transparent;border-top:115px solid #f7ede2;
+  transform-origin:top;transition:transform .8s ease;
+}
+.envelope.open .env-top{transform:rotateX(165deg)}
+.seal{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:62px;height:62px;border-radius:50%;background:var(--rose);color:white;
+  display:grid;place-items:center;font-family:"Cormorant Garamond";font-size:28px;
+  box-shadow:0 5px 12px rgba(120,70,70,.22);transition:opacity .5s;
+}
+.envelope.open .seal{opacity:0}
+.opening h1{font-size:48px;line-height:.9;margin:28px 0 4px;color:var(--green-dark)}
+.opening p{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#7b756d}
+.tap{margin-top:22px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--rose)}
+
+.hero{
+  min-height:100svh;display:flex;align-items:center;justify-content:center;text-align:center;
+  padding:80px 20px;position:relative;overflow:hidden;
+  background:
+    radial-gradient(circle at 10% 20%,rgba(215,166,170,.25),transparent 25%),
+    radial-gradient(circle at 90% 80%,rgba(113,132,109,.22),transparent 30%),
+    var(--cream);
+}
+.hero:before,.hero:after{content:"";position:absolute;width:220px;height:220px;border:1px solid rgba(113,132,109,.25);border-radius:50%}
+.hero:before{left:-120px;top:-80px}.hero:after{right:-120px;bottom:-80px}
+.hero-content{max-width:760px;position:relative;z-index:1}
+.kicker{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--green-dark)}
+.names{font-size:clamp(64px,14vw,125px);font-weight:500;line-height:.72;margin:30px 0 34px;color:var(--green-dark)}
+.names span{display:block;font-size:.42em;color:var(--rose);margin:14px 0}
+.date{font-size:14px;letter-spacing:5px}
+.scroll{margin-top:55px;font-size:10px;letter-spacing:3px;text-transform:uppercase;opacity:.65}
+
+.section{padding:90px 20px;max-width:980px;margin:auto;text-align:center}
+.section.soft{max-width:none;background:rgba(255,253,249,.62)}
+.section h2{font-size:50px;font-weight:500;color:var(--green-dark);margin:8px 0 16px}
+.eyebrow{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--rose)}
+.quote{max-width:680px;margin:0 auto;font-family:"Cormorant Garamond";font-size:31px;line-height:1.25}
+.flower{font-size:34px;color:var(--rose);margin:16px 0}
+
+.countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:700px;margin:35px auto 0}
+.timebox{padding:22px 8px;border:1px solid rgba(113,132,109,.28);background:rgba(255,255,255,.45)}
+.timebox strong{display:block;font-family:"Cormorant Garamond";font-size:42px;font-weight:600;color:var(--green-dark)}
+.timebox small{font-size:9px;letter-spacing:2px;text-transform:uppercase}
+
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:35px}
+.card{padding:34px 22px;background:var(--white);border:1px solid rgba(113,132,109,.16);box-shadow:0 12px 30px rgba(80,70,60,.06)}
+.card .icon{font-size:30px;margin-bottom:10px}
+.card h3{font-size:28px;font-weight:500;color:var(--green-dark);margin:5px 0 10px}
+.card p{font-size:13px;line-height:1.7;margin:5px 0}
+
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  margin-top:20px;padding:14px 24px;border-radius:999px;border:1px solid var(--green-dark);
+  background:var(--green-dark);color:white;font-size:10px;letter-spacing:1.8px;text-transform:uppercase;
+  transition:transform .2s,background .2s;
+}
+.btn:hover{transform:translateY(-2px);background:#3f503e}
+.btn.alt{background:transparent;color:var(--green-dark)}
+
+.dress{display:flex;justify-content:center;gap:35px;flex-wrap:wrap;margin-top:28px}
+.dress-item{min-width:150px}
+.dress-symbol{font-size:36px}
+.dress-item strong{display:block;font-family:"Cormorant Garamond";font-size:25px;font-weight:500;color:var(--green-dark)}
+.dress-item small{font-size:10px;letter-spacing:1px}
+
+.gift{max-width:650px;margin:auto}
+.gift-box{padding:38px;background:var(--white);border:1px solid rgba(113,132,109,.18)}
+.gift-box p{line-height:1.8;font-size:14px}
+.bank-details{display:none;margin:20px auto 0;text-align:left;max-width:420px;background:#f4eee5;padding:20px;font-size:13px;line-height:1.9}
+.bank-details.show{display:block}
+
+.music{display:flex;flex-direction:column;align-items:center;gap:10px}
+.music-title{font-family:"Cormorant Garamond";font-size:34px;color:var(--green-dark)}
+.note{font-size:11px;opacity:.65}
+
+.footer{padding:80px 20px;text-align:center;background:var(--green-dark);color:#fff}
+.footer .names-small{font-family:"Cormorant Garamond";font-size:50px}
+.footer p{font-size:10px;letter-spacing:3px;text-transform:uppercase;opacity:.8}
+
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .8s,transform .8s}
+.reveal.visible{opacity:1;transform:none}
+
+@media(max-width:700px){
+  .cards{grid-template-columns:1fr}
+  .countdown{gap:7px}
+  .timebox{padding:16px 4px}
+  .timebox strong{font-size:31px}
+  .timebox small{font-size:7px;letter-spacing:1px}
+  .quote{font-size:27px}
+  .section{padding:72px 18px}
+  .section h2{font-size:43px}
+}
+</style>
+</head>
+<body class="locked">
+
+<div class="opening" id="opening">
+  <div class="envelope-wrap" id="openBtn">
+    <div class="envelope" id="envelope">
+      <div class="env-body"></div>
+      <div class="env-left"></div><div class="env-right"></div>
+      <div class="env-top"></div>
+      <div class="seal">A<span style="font-size:18px">&</span>E</div>
+    </div>
+    <h1>Amanda & Enzo</h1>
+    <p>26 · 02 · 2027</p>
+    <div class="tap">Toca para abrir</div>
+  </div>
+</div>
+
+<main>
+<section class="hero">
+  <div class="hero-content reveal">
+    <div class="kicker">Nos casamos</div>
+    <div class="names">Amanda <span>&</span> Enzo</div>
+    <div class="date">26 · FEBRERO · 2027</div>
+    <div class="scroll">Desliza para descubrir nuestra invitación ↓</div>
+  </div>
+</section>
+
+<section class="section soft reveal">
+  <div class="eyebrow">Con mucho amor</div>
+  <div class="flower">❦</div>
+  <p class="quote">“Tu compañía es la felicidad para nosotros en esta nueva etapa.”</p>
+</section>
+
+<section class="section reveal">
+  <div class="eyebrow">La cuenta regresiva</div>
+  <h2>Falta poquito...</h2>
+  <div class="countdown">
+    <div class="timebox"><strong id="days">0</strong><small>Días</small></div>
+    <div class="timebox"><strong id="hours">0</strong><small>Horas</small></div>
+    <div class="timebox"><strong id="minutes">0</strong><small>Minutos</small></div>
+    <div class="timebox"><strong id="seconds">0</strong><small>Segundos</small></div>
+  </div>
+</section>
+
+<section class="section soft reveal">
+  <div class="eyebrow">Nuestro gran día</div>
+  <h2>26 de febrero</h2>
+  <div class="cards">
+    <div class="card">
+      <div class="icon">💍</div>
+      <h3>Ceremonia</h3>
+      <p>Los esperamos para compartir este momento tan especial.</p>
+      <p><strong>18:30 hrs.</strong></p>
+    </div>
+    <div class="card">
+      <div class="icon">📍</div>
+      <h3>Ubicación</h3>
+      <p>Hostería y Centro de Eventos Aire Puro</p>
+      <a class="btn" href="https://share.google/KjoOib46eIO5AJv0i" target="_blank" rel="noopener">Ver ubicación</a>
+    </div>
+    <div class="card">
+      <div class="icon">💕</div>
+      <h3>Celebración</h3>
+      <p>Después de la ceremonia, queremos celebrar junto a ustedes.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section reveal">
+  <div class="eyebrow">Dress code</div>
+  <h2>Cómo vestir</h2>
+  <div class="dress">
+    <div class="dress-item">
+      <div class="dress-symbol">🤍</div>
+      <strong>No blanco</strong>
+      <small>Reservado para la novia</small>
+    </div>
+    <div class="dress-item">
+      <div class="dress-symbol">👔</div>
+      <strong>Sin corbatín</strong>
+      <small>Para los hombres</small>
+    </div>
+  </div>
+</section>
+
+<section class="section soft reveal">
+  <div class="eyebrow">Un detalle para nosotros</div>
+  <h2>Nuestra luna de miel</h2>
+  <div class="gift">
+    <div class="gift-box">
+      <div class="flower">♡</div>
+      <p>Su presencia es nuestro mejor regalo. Si desean obsequiarnos algo, agradeceremos mucho una transferencia que nos ayude a cumplir nuestro sueño de disfrutar nuestra luna de miel.</p>
+      <button class="btn alt" id="bankBtn" type="button">Ver datos de transferencia</button>
+      <div class="bank-details" id="bankDetails">
+        <strong>Datos de transferencia</strong><br>
+        <em>Los datos bancarios se agregarán aquí.</em>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section reveal">
+  <div class="eyebrow">Confirma tu asistencia</div>
+  <h2>Queremos contar contigo</h2>
+  <p>Ayúdanos confirmando tu asistencia por WhatsApp.</p>
+  <a class="btn" href="https://wa.me/56936737371?text=Hola%20Amanda%20y%20Enzo%20%F0%9F%92%95%20Queremos%20confirmar%20nuestra%20asistencia%20a%20su%20matrimonio.%20%F0%9F%A5%B0" target="_blank" rel="noopener">Confirmar por WhatsApp</a>
+</section>
+
+<section class="section soft reveal">
+  <div class="eyebrow">Nuestra canción</div>
+  <h2>Destino o casualidad</h2>
+  <div class="music">
+    <div class="music-title">Melendi ft. Ha*Ash</div>
+    <div class="note">Pulsa para escuchar el video oficial</div>
+    <a class="btn alt" href="https://www.youtube.com/watch?v=D9W4DLjmoOM" target="_blank" rel="noopener">♫ Escuchar canción</a>
+  </div>
+</section>
+
+<section class="section reveal">
+  <div class="eyebrow">Y así comienza</div>
+  <div class="flower">❦</div>
+  <p class="quote">Gracias por acompañarnos en el comienzo de esta nueva etapa.</p>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="names-small">Amanda & Enzo</div>
+  <p>26 · 02 · 2027</p>
+</footer>
+
+<script>
+const target = new Date("2027-02-26T18:30:00-03:00").getTime();
+
+function updateCountdown(){
+  const now = Date.now();
+  let diff = Math.max(0, target - now);
+  const d = Math.floor(diff / 86400000); diff %= 86400000;
+  const h = Math.floor(diff / 3600000); diff %= 3600000;
+  const m = Math.floor(diff / 60000); diff %= 60000;
+  const s = Math.floor(diff / 1000);
+  document.getElementById("days").textContent=d;
+  document.getElementById("hours").textContent=String(h).padStart(2,"0");
+  document.getElementById("minutes").textContent=String(m).padStart(2,"0");
+  document.getElementById("seconds").textContent=String(s).padStart(2,"0");
+}
+updateCountdown(); setInterval(updateCountdown,1000);
+
+const opening = document.getElementById("opening");
+const envelope = document.getElementById("envelope");
+document.getElementById("openBtn").addEventListener("click",()=>{
+  envelope.classList.add("open");
+  setTimeout(()=>{
+    opening.classList.add("hidden");
+    document.body.classList.remove("locked");
+  },650);
+});
+
+document.getElementById("bankBtn").addEventListener("click",()=>{
+  document.getElementById("bankDetails").classList.toggle("show");
+});
+
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add("visible"); });
+},{threshold:.12});
+document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
