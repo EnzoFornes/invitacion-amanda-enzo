@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#56664d">
+<title>Amanda & Enzo · Invitación</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&family=Allura&display=swap');
+
+:root{
+  --cream:#f7f0e5;
+  --paper:#fffaf1;
+  --olive:#56664d;
+  --olive2:#718269;
+  --rose:#c88e8e;
+  --gold:#b99a62;
+  --ink:#41423c;
+  --line:#d9c8a8;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;color:var(--ink);
+  background:
+    radial-gradient(circle at 15% 15%,rgba(255,255,255,.8),transparent 28%),
+    radial-gradient(circle at 85% 70%,rgba(222,200,166,.22),transparent 32%),
+    var(--cream);
+  font-family:Montserrat,Arial,sans-serif;
+}
+body.locked{overflow:hidden}
+h1,h2,h3,.serif{font-family:"Cormorant Garamond",Georgia,serif}
+a{text-decoration:none;color:inherit}
+button{font:inherit}
+
+.opening{
+  position:fixed;inset:0;z-index:50;display:grid;place-items:center;
+  padding:30px 18px;text-align:center;
+  background:
+    radial-gradient(circle at 50% 30%,#fffdf7 0,#f7eee1 50%,#eadcc9 100%);
+  transition:.8s ease;
+}
+.opening.hidden{opacity:0;visibility:hidden;pointer-events:none}
+.opening:before,.opening:after{
+  content:"";position:absolute;width:210px;height:210px;pointer-events:none;
+  background:
+    radial-gradient(circle at 30% 30%,#e7b4b0 0 9px,transparent 10px),
+    radial-gradient(circle at 55% 18%,#fff 0 12px,transparent 13px),
+    radial-gradient(circle at 72% 42%,#d3a9a1 0 10px,transparent 11px);
+  opacity:.55;
+}
+.opening:before{left:-70px;top:-45px;transform:rotate(-12deg)}
+.opening:after{right:-70px;bottom:-45px;transform:rotate(168deg)}
+.opening-inner{width:min(620px,100%);position:relative}
+.kicker{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--olive)}
+.opening h1{font-size:clamp(42px,9vw,72px);font-weight:500;color:var(--olive);margin:22px 0 4px}
+.opening p{margin:0;color:#806f60;font-size:11px;letter-spacing:4px}
+.tap{margin-top:22px;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--rose)}
+.envelope{
+  width:min(350px,82vw);height:230px;margin:25px auto 0;
+  position:relative;filter:drop-shadow(0 20px 25px rgba(75,60,45,.14));
+  cursor:pointer;
+}
+.env-body{position:absolute;inset:0;background:#f8eee3;border:1px solid #d7c4ae;border-radius:7px}
+.env-left,.env-right{
+  position:absolute;bottom:0;width:0;height:0;
+  border-bottom:115px solid #e4c8c0;
+}
+.env-left{left:0;border-right:175px solid transparent}
+.env-right{right:0;border-left:175px solid transparent}
+.env-top{
+  position:absolute;left:0;top:0;width:0;height:0;
+  border-left:175px solid transparent;border-right:175px solid transparent;
+  border-top:122px solid #f0d9d2;transform-origin:top;transition:.8s;
+}
+.envelope.open .env-top{transform:rotateX(165deg)}
+.seal{
+  position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);
+  width:68px;height:68px;border-radius:50%;display:grid;place-items:center;
+  background:var(--rose);color:#fff;font-family:"Cormorant Garamond";font-size:25px;
+  box-shadow:0 5px 14px rgba(120,70,70,.2);transition:.45s;
+}
+.envelope.open .seal{opacity:0}
+
+.page{
+  max-width:1080px;margin:auto;overflow:hidden;
+  background:
+    linear-gradient(rgba(255,250,241,.96),rgba(255,250,241,.96)),
+    repeating-linear-gradient(0deg,transparent 0 4px,rgba(160,130,90,.025) 5px);
+  box-shadow:0 0 50px rgba(75,65,50,.06);
+  position:relative;
+}
+.botanical{position:absolute;z-index:0;pointer-events:none;font-size:90px;line-height:.75;color:#73836b}
+.botanical.tl{left:-8px;top:0;transform:rotate(-18deg)}
+.botanical.tr{right:-10px;top:12px;transform:rotate(20deg)}
+.botanical.bl{left:-8px;bottom:0;transform:rotate(20deg)}
+.botanical.br{right:-8px;bottom:0;transform:rotate(-20deg)}
+.botanical span{display:block;font-size:38px;color:#d7a39e;margin:4px 0 0 28px}
+
+.hero{
+  min-height:720px;padding:75px 25px 55px;position:relative;
+  display:grid;place-items:center;text-align:center;
+}
+.hero-content{position:relative;z-index:2;max-width:800px}
+.hero .eyebrow{margin-top:30px}
+.hero h1{font-family:Allura,cursive;font-size:clamp(78px,13vw,145px);font-weight:400;line-height:.8;color:var(--olive);margin:20px 0}
+.hero h1 .amp{color:var(--rose)}
+.date{font-size:14px;letter-spacing:6px;color:var(--ink)}
+.intro{max-width:580px;margin:28px auto;font-family:"Cormorant Garamond";font-size:25px;line-height:1.3}
+.eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--rose)}
+.divider{display:flex;align-items:center;gap:15px;justify-content:center;color:var(--gold);margin:18px 0}
+.divider:before,.divider:after{content:"";width:90px;height:1px;background:var(--gold);opacity:.65}
+
+.envelope-card{
+  max-width:510px;margin:25px auto 0;padding:22px;border:1px solid var(--line);
+  background:rgba(255,255,255,.5);border-radius:4px;
+}
+.envelope-card .guest{font-family:Allura,cursive;font-size:52px;color:var(--olive);line-height:1.05}
+.envelope-card small{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#8b7766}
+
+.section{position:relative;z-index:1;padding:75px 25px;text-align:center}
+.section.soft{background:rgba(246,235,219,.42)}
+.section h2{font-size:52px;font-weight:500;color:var(--olive);margin:8px 0 18px}
+.quote{max-width:680px;margin:auto;font-size:30px;line-height:1.25}
+.flower{font-size:35px;color:var(--rose);margin:12px}
+
+.countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:720px;margin:35px auto}
+.timebox{
+  padding:22px 10px;border:1px solid var(--line);background:rgba(255,255,255,.6);
+  border-radius:5px;
+}
+.timebox strong{display:block;font-family:"Cormorant Garamond";font-size:45px;color:var(--olive);font-weight:600}
+.timebox small{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#816e5d}
+
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:35px}
+.card{
+  padding:30px 22px;background:rgba(255,253,248,.78);border:1px solid var(--line);
+  border-radius:8px;position:relative;overflow:hidden;
+}
+.card:after{content:"❦";position:absolute;right:8px;bottom:-8px;font-size:52px;color:rgba(200,142,142,.22)}
+.card .icon{font-size:29px}
+.card h3{font-size:30px;font-weight:500;color:var(--olive);margin:8px 0}
+.card p{font-size:13px;line-height:1.7}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  margin-top:18px;padding:13px 22px;border-radius:999px;
+  background:var(--olive);color:#fff;border:1px solid var(--olive);
+  font-size:10px;letter-spacing:1.5px;text-transform:uppercase;
+}
+.btn.alt{background:transparent;color:var(--olive)}
+
+.dress{display:flex;justify-content:center;gap:50px;flex-wrap:wrap;margin-top:28px}
+.dress-item{min-width:160px}
+.dress-symbol{font-size:36px}
+.dress-item strong{display:block;font-family:"Cormorant Garamond";font-size:26px;color:var(--olive)}
+.dress-item small{font-size:10px}
+
+.gift-box,.rsvp-box,.song-box{
+  max-width:700px;margin:auto;padding:35px;background:rgba(255,253,248,.78);
+  border:1px solid var(--line);border-radius:9px;
+}
+.gift-box p,.rsvp-box p{line-height:1.8;font-size:14px}
+.bank-details{display:none;text-align:left;background:#f3eadc;padding:18px;margin-top:18px;border-radius:6px;line-height:1.8;font-size:13px}
+.bank-details.show{display:block}
+.song-title{font-family:Allura,cursive;font-size:55px;color:var(--rose);line-height:1}
+.song-artist{font-family:"Cormorant Garamond";font-size:29px;color:var(--olive);margin:8px}
+
+.footer{
+  position:relative;z-index:2;text-align:center;padding:70px 20px;
+  background:var(--olive);color:#fff;
+}
+.footer .initials{font-family:"Cormorant Garamond";font-size:58px}
+.footer p{font-size:10px;letter-spacing:4px;opacity:.85}
+
+@media(max-width:720px){
+  .hero{min-height:680px;padding-top:55px}
+  .cards{grid-template-columns:1fr}
+  .countdown{gap:7px}
+  .timebox{padding:15px 4px}
+  .timebox strong{font-size:31px}
+  .timebox small{font-size:7px;letter-spacing:1px}
+  .section{padding:62px 18px}
+  .section h2{font-size:44px}
+  .quote{font-size:27px}
+  .envelope-card .guest{font-size:45px}
+  .divider:before,.divider:after{width:55px}
+}
+</style>
+</head>
+<body class="locked">
+
+<div class="opening" id="opening">
+  <div class="opening-inner">
+    <div class="kicker">Tenemos el honor de invitarte</div>
+    <div class="envelope" id="envelope" role="button" tabindex="0" aria-label="Abrir invitación">
+      <div class="env-body"></div><div class="env-left"></div><div class="env-right"></div><div class="env-top"></div>
+      <div class="seal">A<span style="font-size:16px">&amp;</span>E</div>
+    </div>
+    <h1 id="openingNames">Amanda &amp; Enzo</h1>
+    <p>26 · 02 · 2027</p>
+    <div class="tap">Toca el sobre para abrir</div>
+  </div>
+</div>
+
+<main class="page">
+  <div class="botanical tl">❧<span>✿</span></div>
+  <div class="botanical tr">❧<span>✿</span></div>
+  <div class="botanical bl">❧<span>✿</span></div>
+  <div class="botanical br">❧<span>✿</span></div>
+
+  <section class="hero">
+    <div class="hero-content">
+      <div class="eyebrow">Nos encantaría compartir este día contigo</div>
+      <div class="divider">♥</div>
+
+      <div class="envelope-card">
+        <small>Para</small>
+        <div class="guest" id="guestName">Nuestros invitados</div>
+      </div>
+
+      <div class="intro">
+        Hay momentos que queremos guardar para siempre...<br>
+        <strong>y este es uno de ellos.</strong>
+      </div>
+
+      <div class="divider">♥</div>
+      <h1>Amanda <span class="amp">&amp;</span> Enzo</h1>
+      <div class="date">26 · 02 · 2027</div>
+      <div class="intro" style="font-size:21px">
+        Queremos que seas parte de este capítulo tan especial en nuestras vidas.<br>
+        <span id="personalGreeting">Nos hará muy felices compartir este día contigo.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section soft">
+    <div class="eyebrow">Con mucho amor</div>
+    <div class="flower">❦</div>
+    <p class="quote">“Tu compañía es la felicidad para nosotros en esta nueva etapa.”</p>
+  </section>
+
+  <section class="section">
+    <div class="eyebrow">Para nuestro gran día</div>
+    <h2>Falta poquito...</h2>
+    <div class="countdown">
+      <div class="timebox"><strong id="days">0</strong><small>Días</small></div>
+      <div class="timebox"><strong id="hours">0</strong><small>Horas</small></div>
+      <div class="timebox"><strong id="minutes">0</strong><small>Minutos</small></div>
+      <div class="timebox"><strong id="seconds">0</strong><small>Segundos</small></div>
+    </div>
+  </section>
+
+  <section class="section soft">
+    <div class="eyebrow">Nuestro gran día</div>
+    <h2>26 de febrero</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="icon">💍</div><h3>Ceremonia</h3>
+        <p>Los esperamos para compartir este momento tan especial.</p>
+        <p><strong>18:30 hrs.</strong></p>
+      </div>
+      <div class="card">
+        <div class="icon">📍</div><h3>Ubicación</h3>
+        <p>Hostería y Centro de Eventos Aire Puro</p>
+        <a class="btn" href="https://share.google/KjoOib46eIO5AJv0i" target="_blank" rel="noopener">Ver ubicación</a>
+      </div>
+      <div class="card">
+        <div class="icon">🥂</div><h3>Celebración</h3>
+        <p>Después de la ceremonia, queremos celebrar junto a ustedes.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="eyebrow">Dress code</div>
+    <h2>Cómo vestir</h2>
+    <div class="dress">
+      <div class="dress-item"><div class="dress-symbol">🤍</div><strong>No blanco</strong><small>Reservado para la novia</small></div>
+      <div class="dress-item"><div class="dress-symbol">👔</div><strong>Sin corbatín</strong><small>Para los hombres</small></div>
+    </div>
+  </section>
+
+  <section class="section soft">
+    <div class="eyebrow">Un detalle para nosotros</div>
+    <h2>Nuestra luna de miel</h2>
+    <div class="gift-box">
+      <div class="flower">♡</div>
+      <p>Su presencia es nuestro mejor regalo. Si desean obsequiarnos algo, agradeceremos mucho una transferencia que nos ayude a cumplir nuestro sueño de disfrutar nuestra luna de miel.</p>
+      <button class="btn alt" id="bankBtn" type="button">Ver datos de transferencia</button>
+      <div class="bank-details" id="bankDetails">
+        <strong>BancoEstado</strong><br>
+        Cuenta RUT<br>
+        Enzo Daniel Fornes Vega<br>
+        RUT: 20.960.128-1<br>
+        N° de cuenta: 20.960.128<br>
+        toninofornes@gmail.com
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="eyebrow">Confirma tu asistencia</div>
+    <h2>Queremos contar contigo</h2>
+    <div class="rsvp-box">
+      <p id="rsvpText">Ayúdanos confirmando tu asistencia por WhatsApp.</p>
+      <a class="btn" id="whatsappBtn"
+         href="https://wa.me/56936737371"
+         target="_blank" rel="noopener">Confirmar por WhatsApp</a>
+    </div>
+  </section>
+
+  <div id="musicPlayer" aria-hidden="true"
+style="position:fixed;width:1px;height:1px;left:-10px;bottom:-10px;opacity:0;pointer-events:none;"></div>
+
+<section class="section soft reveal">
+  <div class="eyebrow">Nuestra canción</div>
+  <h2>Destino o casualidad</h2>
+  <p class="serif" style="font-size:32px;color:var(--gd)">
+    Melendi &amp; Ha*Ash
+  </p>
+  <a class="btn alt"
+     href="https://www.youtube.com/watch?v=D9W4DLjmoOM"
+     target="_blank">
+    ♫ Abrir canción en YouTube
+  </a>
+</section>
+
+  <section class="section">
+    <div class="flower">❦</div>
+    <p class="quote">Gracias por acompañarnos en el comienzo de esta nueva etapa.</p>
+  </section>
+
+  <footer class="footer">
+    <div class="initials">A &amp; E</div>
+    <p>26 · 02 · 2027</p>
+  </footer>
+</main>
+
+<script>
+/* PERSONALIZACIÓN: usa ?invitado=Nombre%20del%20invitado en la URL. */
+const params = new URLSearchParams(window.location.search);
+const invitedName = (params.get("invitado") || "").trim();
+
+if (invitedName) {
+  const cleanName = invitedName;
+  document.getElementById("guestName").textContent = cleanName;
+  document.getElementById("personalGreeting").textContent =
+    "Nos hará muy felices compartir este día contigo.";
+
+  const whatsappText =
+    "Hola Amanda y Enzo 💕\n\n" +
+    "Queremos confirmar nuestra asistencia a su matrimonio. 🥂\n" +
+    "Invitados: " + cleanName;
+
+  document.getElementById("whatsappBtn").href =
+    "https://wa.me/56936737371?text=" + encodeURIComponent(whatsappText);
+  document.getElementById("rsvpText").textContent =
+    "Esta invitación está preparada especialmente para " + cleanName + ".";
+} else {
+  document.getElementById("whatsappBtn").href =
+    "https://wa.me/56936737371?text=" +
+    encodeURIComponent("Hola Amanda y Enzo 💕 Queremos confirmar nuestra asistencia a su matrimonio. 🥂");
+}
+
+const target = new Date("2027-02-26T18:30:00-03:00").getTime();
+function updateCountdown(){
+  let diff = Math.max(0, target - Date.now());
+  const d=Math.floor(diff/86400000); diff%=86400000;
+  const h=Math.floor(diff/3600000); diff%=3600000;
+  const m=Math.floor(diff/60000); diff%=60000;
+  const s=Math.floor(diff/1000);
+  document.getElementById("days").textContent=d;
+  document.getElementById("hours").textContent=String(h).padStart(2,"0");
+  document.getElementById("minutes").textContent=String(m).padStart(2,"0");
+  document.getElementById("seconds").textContent=String(s).padStart(2,"0");
+}
+updateCountdown(); setInterval(updateCountdown,1000);
+
+const opening=document.getElementById("opening");
+const envelope=document.getElementById("envelope");
+function startBackgroundMusic(){
+  const player = document.getElementById("musicPlayer");
+  if (player.dataset.started === "1") return;
+  player.dataset.started = "1";
+
+  const iframe = document.createElement("iframe");
+  iframe.width = "1";
+  iframe.height = "1";
+  iframe.style.border = "0";
+  iframe.src = "https://www.youtube.com/embed/miAYBACc5dw?autoplay=1&mute=0&loop=1&playlist=miAYBACc5dw&controls=0&playsinline=1&rel=0";
+  iframe.title = "Música de fondo";
+  iframe.allow = "autoplay; encrypted-media; picture-in-picture";
+  player.appendChild(iframe);
+}
+
+function openInvitation(){
+  startBackgroundMusic();
+  envelope.classList.add("open");
+  setTimeout(()=>{
+    opening.classList.add("hidden");
+    document.body.classList.remove("locked");
+  },650);
+}
+
+envelope.addEventListener("click",openInvitation);
+envelope.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" ")openInvitation()});
+
+document.getElementById("bankBtn").addEventListener("click",()=>{
+  document.getElementById("bankDetails").classList.toggle("show");
+});
+</script>
+</body>
+</html>
