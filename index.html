@@ -120,12 +120,85 @@ transition:.8s;overflow:hidden}
 <div class="card"><div class="flower">❧</div><h3>Ubicación</h3><p>Hostería y Centro de Eventos Aire Puro</p><a class="btn" href="https://maps.app.goo.gl/SpAedGSHAtKsrZ8V8" target="_blank">Ver ubicación</a></div>
 <div class="card"><div class="flower">❦</div><h3>Celebración</h3><p>Después de la ceremonia queremos celebrar junto a ustedes.</p></div>
 </div></section>
+<head>
+  <meta charset="UTF-8">
+  <title>Invitación</title>
 
+  <style>
+
+    /* Aquí tienes todos tus estilos actuales */
+    
+    body {
+      ...
+    }
+
+    .section {
+      ...
+    }
+
+    .dress {
+      ...
+    }
+
+
+    /* AQUÍ PEGAS LO NUEVO */
+
+    .colores-prohibidos {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .color {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: inline-block;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+    }
+
+    .blanco {
+      background-color: #ffffff;
+      border: 1px solid #999;
+    }
+
+    .rosa {
+      background-color: #e8a6b8;
+    }
+
+    .malva {
+      background-color: #b58a9b;
+    }
+
+  </style>
+</head>
 <section class="section reveal">
-  <h2>DRESS CODE</h2>
+  <h2>¡ DRESS CODE !</h2>
+
   <div class="dress">
-<div><div class="flower">♡</div><strong>No blanco</strong><small>Reservado para la novia</small></div>
-<div><div class="flower">♧</div><strong>Sin corbatín</strong><small>Para los hombres</small></div></div></section>
+
+    <div>
+      <div class="flower"> 🌸💗 </div>3
+      <strong>No blanco, rosa ni malva</strong>
+      <small>Colores reservados para la novia y sus damas de honor</small>
+
+      <div class="colores-prohibidos">
+        <span class="color blanco"></span>
+        <span class="color rosa"></span>
+        <span class="color malva"></span>
+      </div>
+    </div>
+
+    <div>
+      <div class="flower">♧</div>
+      <strong>Sin corbatín</strong>
+      <small>Para los hombres</small>
+    </div>
+
+  </div>
+</section>
+
 
 <section class="section soft reveal"><div class="eyebrow">Un detalle para nosotros</div><h2>Nuestra luna de miel</h2><div class="giftbox"><p>Su presencia es nuestro mejor regalo. Si desean obsequiarnos algo, agradeceremos mucho una transferencia que nos ayude a cumplir nuestro sueño de disfrutar nuestra luna de miel.</p><button class="btn alt" id="bank">Ver datos de transferencia</button><div class="details" id="details">
 <b>Datos para transferencia</b><br>
