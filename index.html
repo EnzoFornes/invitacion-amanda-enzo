@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="es">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -44,7 +44,7 @@ transition:.8s;overflow:hidden}
 .count{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-width:700px;margin:30px auto}.unit{background:#fffdf8;border:1px solid #687d6530;padding:20px 6px}.unit strong{display:block;font:600 42px "Cormorant Garamond";color:var(--gd)}.unit small{font-size:8px;letter-spacing:2px;text-transform:uppercase}
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px}.card{background:var(--w);padding:32px 20px;border:1px solid #687d6520;box-shadow:0 12px 30px #6b5e4c0d}.card h3{font:400 29px "Cormorant Garamond";color:var(--gd);margin:5px}.card p{font-size:13px;line-height:1.7}
 .btn{display:inline-flex;border:0;border-radius:999px;background:var(--gd);color:#fff;padding:14px 22px;margin-top:14px;font-size:10px;letter-spacing:1.6px;text-transform:uppercase;cursor:pointer}.btn.alt{background:transparent;color:var(--gd);border:1px solid var(--gd)}
-.dress{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;margin-top:25px}.dress strong{display:block;font:28px "Cormorant Garamond";color:var(--gd)}.dress small{font-size:10px}.mauve-swatch{width:42px;height:42px;border-radius:50%;background:#b77c84;border:2px solid #fffdf8;box-shadow:0 3px 10px rgba(75,62,55,.14);margin:0 auto 18px}
+.dress{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;margin-top:25px}.dress strong{display:block;font:28px "Cormorant Garamond";color:var(--gd)}.dress small{font-size:10px}
 .giftbox,.rsvpbox{max-width:650px;margin:25px auto 0;background:var(--w);padding:30px;border:1px solid #687d6520}.details{display:none;text-align:left;background:#f3eadf;padding:18px;margin-top:15px;line-height:1.8;font-size:13px}.details.show{display:block}
 .form{display:grid;gap:12px;text-align:left;margin-top:20px}.form label{font-size:10px;letter-spacing:1px;text-transform:uppercase}.form input,.form select,.form textarea{width:100%;padding:13px;border:1px solid #687d6540;background:#fffefa;font:14px Montserrat}.form textarea{min-height:90px;resize:vertical}.hint{font-size:11px;opacity:.65;line-height:1.6}
 .footer{background:var(--gd);color:#fff;text-align:center;padding:70px 20px}.footer .serif{font-size:52px}.footer p{font-size:9px;letter-spacing:3px}
@@ -100,6 +100,9 @@ transition:.8s;overflow:hidden}
 <div class="cover-prompt">Toca el sobre para abrir</div>
 </div></div>
 
+<section class="childhood-memory" aria-label="Recuerdo de infancia">
+  <img src="recuerdo-amanda-enzo.png" alt="Amanda y Enzo de niños">
+</section>
 
 <section class="hero"><div>
 <div class="kicker" id="welcome">Nos casamos</div>
@@ -113,59 +116,21 @@ transition:.8s;overflow:hidden}
 <div class="unit"><strong id="d">0</strong><small>Días</small></div><div class="unit"><strong id="h">0</strong><small>Horas</small></div><div class="unit"><strong id="m">0</strong><small>Minutos</small></div><div class="unit"><strong id="s">0</strong><small>Segundos</small></div></div></section>
 
 <section class="section soft reveal"><div class="eyebrow">Nuestro gran día</div><h2>26 de febrero</h2><div class="cards">
-<div class="card"><div class="flower">♡</div><h3>Ceremonia</h3><p>Los esperamos para compartir este momento tan especial.</p><p><b>18:00 hrs.</b></p></div>
+<div class="card"><div class="flower">♡</div><h3>Ceremonia</h3><p>Los esperamos para compartir este momento tan especial.</p><p><b>18:30 hrs.</b></p></div>
 <div class="card"><div class="flower">❧</div><h3>Ubicación</h3><p>Hostería y Centro de Eventos Aire Puro</p><a class="btn" href="https://maps.app.goo.gl/SpAedGSHAtKsrZ8V8" target="_blank">Ver ubicación</a></div>
 <div class="card"><div class="flower">❦</div><h3>Celebración</h3><p>Después de la ceremonia queremos celebrar junto a ustedes.</p></div>
 </div></section>
 
-<section class="section reveal">
-  <div class="eyebrow">DRESS CODE</div>
-  <h2>DRESS CODE</h2>
+<section class="section reveal"><div class="eyebrow">Dress code</div><h2>Cómo vestir</h2><div class="dress">
+<div><div class="flower">♡</div><strong>No blanco</strong><small>Reservado para la novia</small></div>
+<div><div class="flower">♧</div><strong>Sin corbatín</strong><small>Para los hombres</small></div></div></section>
 
-  <div class="dress">
-
-    <div>
-      <div class="flower">🩷</div>
-      <strong>No blanco</strong>
-      <strong>No rosado malva</strong>
-      <small>Reservado para la novia</small>
-    </div>
-
-    <div>
-      <div class="flower">🤵‍♂️</div>
-      <strong>Sin corbatín</strong>
-      <small>Para los hombres</small>
-    </div>
-
-  </div>
-</section>
-</div>
-</div>
-<section class="section soft reveal">
-  <div class="eyebrow">Un detalle para nosotros</div>
-
-  <h2>Nuestra luna de miel 🍯 ✈️</h2>
-
-  <div class="giftbox">
-    <p>
-      Su presencia es nuestro mejor regalo. Si desean obsequiarnos algo,
-      agradeceremos mucho una transferencia que nos ayude a cumplir nuestro
-      sueño de disfrutar nuestra luna de miel.
-    </p>
-
-    <button class="btn alt" id="bank">
-      Ver datos de transferencia
-    </button>
-
-    <div class="details" id="details">
-      <b>Datos para transferencia</b><br><br>
-      Banco: BancoEstado<br>
-      Tipo de cuenta: Cuenta RUT<br>
-      Número de cuenta: 20.960.128-1<br>
-      Correo: amanda.enzo.matrimonio@gmail.com
-    </div>
-  </div>
-</section>
+<section class="section soft reveal"><div class="eyebrow">Un detalle para nosotros</div><h2>Nuestra luna de miel</h2><div class="giftbox"><p>Su presencia es nuestro mejor regalo. Si desean obsequiarnos algo, agradeceremos mucho una transferencia que nos ayude a cumplir nuestro sueño de disfrutar nuestra luna de miel.</p><button class="btn alt" id="bank">Ver datos de transferencia</button><div class="details" id="details">
+<b>Datos para transferencia</b><br>
+Banco: BancoEstado<br>
+Tipo de cuenta: Cuenta RUT<br>
+Número de cuenta: 20.960.128-1
+</div></div></section>
 
 <section class="section reveal" id="confirmar"><div class="eyebrow">Confirma tu asistencia</div><h2>Queremos contar contigo</h2><p class="hint">Esta invitación puede personalizarse para cada invitado. Completa tus datos y la confirmación se enviará directamente por WhatsApp.</p>
 <div class="rsvpbox"><div class="form">
@@ -229,7 +194,7 @@ if(rsvp)rsvp.addEventListener("click",()=>{
  const attendance=document.getElementById("attendance").value;
  const message=document.getElementById("message").value.trim();
  const text=`Hola Amanda y Enzo, soy ${guestName}. ${attendance}.`+(message?` Mensaje: ${message}`:"");
- location.href="https://wa.me/56936737371?text="+encodeURIComponent(text);
+ location.href="https://wa.me/?text="+encodeURIComponent(text);
 });
 
 const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add("visible")}),{threshold:.12});
