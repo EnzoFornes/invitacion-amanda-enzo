@@ -26,8 +26,7 @@ transition:.8s;overflow:hidden}
 .cover-inner{position:relative;z-index:2;width:min(92vw,560px);min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 20px 55px}
 .cover-kicker{font-size:11px;letter-spacing:5px;color:#52604c;margin-bottom:10px;text-transform:uppercase}
 .cover-para{font:27px "Cormorant Garamond",Georgia,serif;color:#5c634e;margin:0 0 2px}
-const coverGuest=document.getElementById("coverGuest");
-coverGuest.innerHTML=guestName.replace(/\s*&\s*/g,"<span>&</span><br>");
+.cover-guest{font:600 italic clamp(42px,10vw,66px)/.95 "Cormorant Garamond",Georgia,serif;color:#c56f76;margin:0 0 18px}
 .cover-divider{display:flex;align-items:center;gap:12px;color:#d77f84;margin-bottom:25px}
 .cover-divider:before,.cover-divider:after{content:"";width:85px;height:1px;background:#7d8a70;opacity:.55}
 .cover-envelope{position:relative;width:min(86vw,500px);aspect-ratio:1.48;margin:0 auto 28px;filter:drop-shadow(0 18px 18px rgba(75,62,55,.16));cursor:pointer}
@@ -149,12 +148,7 @@ Correo: amanda.enzo.matrimonio@gmail.com
 <script>
 const params=new URLSearchParams(location.search);
 const guestName=(params.get("invitado")||"Claudio & Marieliana").trim();
-const params=new URLSearchParams(location.search);
-const guestName=(params.get("invitado")||"Claudio & Marieliana").trim();
-
-const coverGuest=document.getElementById("coverGuest");
-coverGuest.innerHTML=guestName.replace(/\s*&\s*/g,"<span>&</span><br>");
-
+document.getElementById("coverGuest").textContent=guestName;
 document.getElementById("guest").value=guestName;
 
 const target=new Date("2027-02-26T18:30:00-03:00").getTime();
